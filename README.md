@@ -66,10 +66,10 @@ released under the MIT or BSD license.
 
 Included vendor inside?
 --------------
-[1]:  FOSUserBundle
-[2]:  DoctrineMigrationsBundle
-[3]:  StofDoctrineExtensionsBundle
-[4]:  FOSJsRoutingBundle
+* **FOSUserBundle**
+* **DoctrineMigrationsBundle**
+* **StofDoctrineExtensionsBundle**
+* **FOSJsRoutingBundle**
 
 
 Enjoy!
