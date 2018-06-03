@@ -1,22 +1,56 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% if error %}
-    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
+<div class="row">
+    <div class="col-sm-4 "></div>
+    <div class="col-sm-4 ">
 
-<form action="{{ path("fos_user_security_check") }}" method="post">
-    {% if csrf_token %}
-        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-    {% endif %}
+        <!--Form without header-->
+        <div class="card">
+            <div class="card-body mx-4">
+                <div class="row-fluid">
+                    {% if error %}
+                        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+                </div>
+                <div class="row-fluid">
+                    <form action="{{ path("fos_user_security_check") }}" method="post">
 
-    <label for="username">{{ 'security.login.username'|trans }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
+                        {% if csrf_token %}
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                        {% endif %}
+                        <!--Header-->
+                        <div class="text-center">
+                            <h3 class="dark-grey-text mb-5"><strong>{{ 'Sign in'|trans }}</strong></h3>
+                        </div>
 
-    <label for="password">{{ 'security.login.password'|trans }}</label>
-    <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
+                        <!--Body-->
+                        <div class="md-form">
+                            <input type="text" name="_username" id="Form-username" class="form-control" value="{{ last_username }}" required="required" autocomplete="username">
+                            <label for="Form-username">{{ 'security.login.username'|trans }}</label>
+                        </div>
 
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                        <div class="md-form pb-3">
+                            <input type="password" id="Form-pass1" class="form-control" name="_password" required="required" autocomplete="current-password">
+                            <label for="Form-pass1">{{ 'security.login.password'|trans }}</label>
+                            <p class="font-small blue-text d-flex justify-content-end">  <a href="#" class="blue-text ml-1"> {{ 'Forgot Password?'|trans}}</a></p>
+                        </div>
 
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-</form>
+                        <div class="text-center mb-3">
+                            <button type="submit" id="_submit" name="_submit" class="btn blue-gradient btn-block btn-rounded z-depth-1a">{{ 'security.login.submit'|trans }}</button>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="row-fluid">
+                    <!--Footer-->
+                    <div class="modal-footer mx-5 pt-3 mb-1">
+                        <p class="font-small grey-text d-flex justify-content-end">{{'Not a member?'|trans }} <a href="{{path('fos_user_registration_register')}}" class="blue-text ml-1">{{'Sign Up'|trans}}</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/Form without header-->
+
+    </div>
+    <div class="col-sm-4 "></div>
+</div>

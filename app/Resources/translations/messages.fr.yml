@@ -1,0 +1,16 @@
+## LOGIN ##
+Do not have an account?: "Vous n'avez pas de compte?"
+
+
+## Elements commun ##
+home: "Accueil"
+title: "Titre"
+annonce: "ads"
+description: "déscription"
+content: "contenu"
+category: "catégories"
+Return to index page: "Routour à la page index"
+## Back Office ##
+#login
+password: "Mot de passe"
+
